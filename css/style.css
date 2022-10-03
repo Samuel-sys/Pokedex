@@ -7,7 +7,32 @@
    font-family: 'Oxanium', cursive; 
 }
 
-/*main{
-    background-color: red;
+/*Definições do backgroud do corpo do site 
+para ter um degrade do azul-claro para o branco
+
+OBS: Colocamos um height minemo de 100% da viewport para que 
+não tenha uma quebra no meio da tela*/ 
+body{
+    text-align: center;
+    background: linear-gradient(to bottom, #6ab7f5, #fff);
+    min-height: 100vh;
+}
+
+/*Aqui nos estamos definindo a posição da pokedex*/
+main{
+    background-color: red; /* Estou mantendo esse background para conseguir observar o conportamento da tag main */
     display: inline-block;
-}*/
+    margin-top: 2%;
+    padding: 15px;
+}
+
+.pokedex{
+    /*Estamos colocando uma limitação para que a imagem da pokedex nunca fique vazada
+    Ocupando assim sempre 100% da largura disponivel na tela*/
+    width: 100%;
+
+    /*Colocamos essa lagura como maxima pois a imagem da pokedex que nos estamos usanda
+    tem a proporção de 425 X 637 Assim evitando uma destorção da imagem*/
+    max-width: 425px;
+}
+
