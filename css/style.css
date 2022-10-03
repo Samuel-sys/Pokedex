@@ -46,3 +46,20 @@ main{
     transform: translate(-63%,20%);
     height: 18%;
 }
+
+.pokemon_data{
+    position: absolute;
+    font-weight: 600;
+    color: #aaa;
+    
+    /* Optei por posicionar os dados do pokemon dessa forma ao invés de user o top e right */
+    bottom: 40%;
+    left: 25%;
+
+    font-size: clamp(8px, 5vw, 25px); /*clamp (MINEMO, DESEJAVEL, MAXIMO)*/
+}
+
+.pokemon_name{
+    color: #3a444d;
+    text-transform: capitalize; /*Coloca a primeira letra como maiúscula*/
+}
