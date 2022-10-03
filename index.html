@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- 
         Site para ajudar a gerar um icon (Anotação para ajuda em casos futuros)
         https://www.websiteplanet.com/pt-br/webtools/favicon-generator/
@@ -14,33 +15,40 @@
 
     <title>pokédex</title>
 </head>
+
 <body>
-    
+
     <main>
-        
+
         <!-- Estamos mantendo uma gif fixa temporariamente para estar tendo uma visualização do resultado final -->
         <!-- GIF do pokemon -->
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif" alt="pokemon" class="pokemon_image">
-        
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif"
+            alt="pokemon" class="pokemon_image">
+
         <!-- Dados do pokemon -->
         <h1 class="pokemon_data">
-            <span class="pokemon_number">1</span> - 
+            <span class="pokemon_number">1</span> -
             <span class="pokemon_name">bulbasaur</span>
         </h1>
-        
+
         <form class="form">
-            <input 
-            type="search"
-            class="input_search"
-            placeholder="Name or Number"
-            required
-            >
+            <input type="search" class="input_search" placeholder="Name or Number" required>
         </form>
+
+        <div class="buttons">
+            <!-- No HTML sempre que colocamos o simbolo "<" ou ">" ele pode acabar confundindo com uma 
+            Abertura de uma tag, para evitar isso nos adicionamos um html entities nesse caso seria:
+            < = &lt; ou &#60;
+            > = &gt; ou &#62;
+            Duvidas verificar a o site https://www.freeformatter.com/html-entities.html -->
+            <button class="button btn-prev"> &lt; Prev </button>
+            <button class="button btn-next"> Next &gt; </button>
+        </div>
 
         <!-- Imagem da pokedex -->
         <img src="./images/pokedex.png" alt="pokedex" class="pokedex">
-
     </main>
 
 </body>
+
 </html>

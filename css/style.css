@@ -87,3 +87,34 @@ main {
     /*clamp (MINEMO, DESEJAVEL, MAXIMO)*/
     box-shadow: -3px 4px 0 #888, -5px 7px 0 #333;
 }
+
+/* Posicionamento do butão em que o usuario conseguir ver o pokemon que vem antes e depois*/
+.buttons{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 65%;
+    transform: translate(-57%, 0%);
+    display: flex;
+    gap: 5%;
+
+}
+
+/*Definimos uma sombra para os 2 buttons e posicionar os 2 centralizados na parte de baixo da pokedex*/
+.button{
+    width: 50%;
+    padding: 4%;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: clamp(8px, 5vw, 1rem);
+    font-weight: 600;
+    color: #fff;
+    background-color: #444;
+    box-shadow: -2px 3px 0 #222, -4px 6px #000;
+}
+
+/*Animação de clique no botão*/
+.button:active{
+    box-shadow: inset -4px 4px 0 #222;
+    font-size: 0.9rem;
+}
