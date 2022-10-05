@@ -12,6 +12,8 @@ const fetchPokemon = async (pokemon) =>{
     const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 
     const data = await APIResponse.json(); //extraimos os dados JSONG
+
+    return data;
 }
 
 const renderPokemon = async (pokemon) => {
@@ -30,7 +32,7 @@ form.addEventListener('submit', (event)=>{
 
     event.preventDefault();
 
-    renderPokemon(PokeSearch.value);
+    renderPokemon(PokeSearch.value == '' || PokeSearch.value == null ? 1 : PokeSearch.value);
 
     PokeSearch.value = '';
 
