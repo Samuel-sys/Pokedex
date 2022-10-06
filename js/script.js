@@ -4,6 +4,10 @@ const PokeImage = document.querySelector('.pokemon_image');
 
 const form = document.querySelector('.form');
 const PokeSearch = document.querySelector('.input_search');
+const ButtonNext = document.querySelector('.btn-next');
+const ButtonPrev = document.querySelector('.btn-prev');
+
+let idPokemon = 1;
 
 const fetchPokemon = async (pokemon) => {
 
@@ -30,6 +34,7 @@ const renderPokemon = async (pokemon) => {
     //Estamos pegando o arquivo JSON e extraindo os dados
     PokeName.innerHTML = data.name;
     PokeNumber.innerHTML = data.id;
+    idPokemon = data.id;
     //Caminho até o gif do pokemon para aparecer no site
     PokeImage.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
 
@@ -43,6 +48,14 @@ form.addEventListener('submit', (event) => {
     renderPokemon(PokeSearch.value);
     PokeSearch.value = '';
 
+});
+
+ButtonNext.addEventListener('click', () => {
+    renderPokemon(idPokemon +1);
+});
+
+ButtonPrev.addEventListener('click', () => {
+    renderPokemon(idPokemon > 1 ? idPokemon - 1: idPokemon);
 });
 
 window.onload = () => {
