@@ -11,15 +11,18 @@ const fetchPokemon = async (pokemon) => {
     Recebimento dos dados do pokemon */
     const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 
-    const data = await APIResponse.json(); //extraimos os dados JSONG
-
-    return data;
+    //ele só irá passar o arquivo JSON para o resto do projeto se ele encontrar pokemon
+    if (APIResponse.status == 200) {
+        const data = await APIResponse.json(); //extraimos os dados JSONG
+        return data;
+    }
 }
 
 const renderPokemon = async (pokemon) => {
 
+    //Caso o colaborador não escreva nada ele consulta o pokemon de ID 1
     pokemon = pokemon == '' || pokemon == null ? '1' : pokemon;
-
+    //Permite o usuário a fazer consultas pelo nome do pokemon independente se ele escrever com tudo em maiúsculo ou minusculo
     pokemon = pokemon.toString().toLowerCase();
 
     const data = await fetchPokemon(pokemon);
