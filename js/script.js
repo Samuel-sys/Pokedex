@@ -62,7 +62,7 @@ const renderPokemon = async (pokemon) => {
     const data = await fetchPokemon(pokemon);
 
     /*Estamos definindo qual a forma da apresentação do pokemon na pokedex */
-    pkm = posicion ? 'back_' : 'front_'
+    var pkm = posicion ? 'back_' : 'front_';
     pkm += shiny ? 'shiny': 'default';
 
     //Estamos pegando o arquivo JSON e extraindo os dados
