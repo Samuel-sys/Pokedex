@@ -27,34 +27,6 @@ main {
     /* Estamos impedindo que os objetos dentro da tag man possam sair da área delimitada */
 }
 
-/*Definimos o tamanho do botão de eventos e deixamos ele transparente*/
-.btn{
-    height: 3.5%;
-    width: 5.3%;
-    border-radius: 100%;
-    background-color: transparent;
-    border-color: transparent;
-    position: absolute;
-    top: 3.78%;
-    cursor: pointer;
-}
-
-.shiny{
-    left: 29%;
-}
-
-.posicion{
-    left: 36.5%;
-}
-
-.full{
-    left: 43.7%;
-}
-
-.activated{
-    background: radial-gradient(rgba(231, 255, 18), green);
-}
-
 .pokedex {
     /*Estamos colocando uma limitação para que a imagem da pokedex nunca fique vazada
     Ocupando assim sempre 100% da largura disponivel na tela*/
@@ -65,13 +37,38 @@ main {
     max-width: 425px;
 }
 
-/*Classe responsável pela posição e tamanho do gif do pokemon*/
+.gridpokemon{
+    gap: 2px;
+    bottom: 47%;
+    left: 18%;
+    position: absolute;
+    width: 56.2%;
+    height: 25.5%;
+    border: solid #000;
+    border-radius: 5%;
+    display: table-row;
+    justify-items: center;
+}
+
+/*Classe responsável pela posição e tamanho do gif do pokemon quando apresentado dois gif*/
+.pokemon_image2{
+    margin-top: 20%;
+    margin-bottom: 20%;
+    height: 50%;
+    max-height: 47%;
+}
+
+/*Classe responsável pela posição e tamanho do gif do pokemon quando apresentado somente um gif*/
 .pokemon_image {
     position: absolute;
     bottom: 55%;
     left: 50%;
     transform: translate(-63%, 20%);
     height: 18%;
+}
+
+.hide{
+    visibility: collapse;
 }
 
 /*Posicionamento do nome do pokemon */
@@ -92,56 +89,4 @@ main {
     color: #3a444d;
     text-transform: capitalize;
     /*Coloca a primeira letra como maiúscula*/
-}
-
-/* Posicionamento do input em que o usuario vai digitar o nome ou numero do pokemon que ele que ver os dados */
-.form {
-    position: absolute;
-    width: 65%;
-    top: 65%;
-    left: 13.5%;
-}
-
-/* Configurações do tamanho e estudo do input */
-.input_search {
-    width: 100%;
-    padding: 4%;
-    outline: none;
-    border-radius: 5px;
-    font-weight: 600;
-    color: #3a444d;
-    font-size: clamp(8px, 5vw, 1rem);
-    /*clamp (MINEMO, DESEJAVEL, MAXIMO)*/
-    box-shadow: -3px 4px 0 #888, -5px 7px 0 #333;
-}
-
-/* Posicionamento do butão em que o usuario conseguir ver o pokemon que vem antes e depois*/
-.buttons{
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    width: 65%;
-    transform: translate(-57%, 0%);
-    display: flex;
-    gap: 5%;
-
-}
-
-/*Definimos uma sombra para os 2 buttons e posicionar os 2 centralizados na parte de baixo da pokedex*/
-.button{
-    width: 50%;
-    padding: 4%;
-    border: 2px solid #000;
-    border-radius: 5px;
-    font-size: clamp(8px, 5vw, 1rem);
-    font-weight: 600;
-    color: #fff;
-    background-color: #444;
-    box-shadow: -2px 3px 0 #222, -4px 6px #000;
-}
-
-/*Animação de clique no botão*/
-.button:active{
-    box-shadow: inset -4px 4px 0 #222;
-    font-size: 0.9rem;
 }
