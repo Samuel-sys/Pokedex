@@ -61,17 +61,19 @@ const renderTypePokemon = (type) => {
     let imgType = document.querySelectorAll('.pokemon_type_img');
 
     //Loop para excluir todos os elementos HTML com as informações do tipo do pokemon anterior
-    for(var i = 0; i < imgType.length ; i++ ) PokeType.removeChild(imgType[i]);
+    for (var i = 0; i < imgType.length; i++) PokeType.removeChild(imgType[i]);
+
+    if (!type) return;
 
     //Loop para criar o elementos HTML que informa a tipagem do pokemon
-    for(var i = 0 ; i < type.length; i++){
+    for (var i = 0; i < type.length; i++) {
 
         let img = document.createElement('img');
-        
+
         img.className = 'pokemon_type_img';
 
         img.src = `./images/type/${type[i].type.name}.png`;
-        
+
         PokeType.appendChild(img);
     }
 }
@@ -86,6 +88,14 @@ const renderPokemon = async (pokemon) => {
     //consulta na API o pokemon informado e retorna o JSON com todas as informações do pokemon
     const data = await fetchPokemon(pokemon).then((data) => {
 
+        //Esse bloco só irá ser executado se a consulta na API não retornar nenhuma informação
+        if (!data) {
+            PokeNumber.innerHTML = "";
+            PokeName.innerHTML = "Not Found :(";
+            PokeImage.src = "./images/img_default.png";
+            renderTypePokemon();
+            return;
+        }
         var img = data['sprites']['versions']['generation-v']['black-white']['animated'];
 
         /*Estamos definindo qual a forma da apresentação do pokemon na pokedex */
