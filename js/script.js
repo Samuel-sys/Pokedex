@@ -2,6 +2,7 @@ const PokeName = document.querySelector('.pokemon_name');
 const PokeNumber = document.querySelector('.pokemon_number');
 const PokeImage = document.querySelector('.pokemon_image');
 const TwoPokeImage = document.querySelectorAll('.pokemon_image2');
+const PokeType = document.querySelector('.pokemon_type');
 
 const form = document.querySelector('.form');
 const PokeSearch = document.querySelector('.input_search');
@@ -21,6 +22,8 @@ btnPosicion.addEventListener('click', () => posicion = activatedButton(posicion,
 
 const btnFrontAndBack = document.querySelector('.FrontAndBack');
 let FrontAndBack = false;
+
+//Essa função irá ser responsavel por alternar no modo de apresentar 2 fotos ao mesmo tempo ou apresentar somente uma.
 btnFrontAndBack.addEventListener('click', () => {
     FrontAndBack = activatedButton(FrontAndBack, btnFrontAndBack);
     if (FrontAndBack) {
@@ -35,8 +38,9 @@ btnFrontAndBack.addEventListener('click', () => {
     }
 });
 
-//Essa função irá adicionar ou remover a classe "activated" do elemento que foi informado. 
-//para definir isso sempre entre com o valor bool que terá a inversão de seu valor
+/*Essa função irá adicionar ou remover a classe "activated" do elemento que foi informado. 
+para definir isso sempre entre com o valor bool que terá a inversão de seu valor e o Elemento HTML que tera
+o seu estilo (CSS) alterado pela classe "activated" */
 const activatedButton = (status, elemnt) => {
     status = !status;
 
@@ -51,6 +55,27 @@ const activatedButton = (status, elemnt) => {
     return status;
 };
 
+//Função responsavel por carregar as informações do tipo do pokemon na pokedex
+const renderTypePokemon = (type) => {
+
+    let imgType = document.querySelectorAll('.pokemon_type_img');
+
+    //Loop para excluir todos os elementos HTML com as informações do tipo do pokemon anterior
+    for(var i = 0; i < imgType.length ; i++ ) PokeType.removeChild(imgType[i]);
+
+    //Loop para criar o elementos HTML que informa a tipagem do pokemon
+    for(var i = 0 ; i < type.length; i++){
+
+        let img = document.createElement('img');
+        
+        img.className = 'pokemon_type_img';
+
+        img.src = `./images/type/${type[i].type.name}.png`;
+        
+        PokeType.appendChild(img);
+    }
+}
+
 const renderPokemon = async (pokemon) => {
 
     //Caso o colaborador não escreva nada ele consulta o pokemon de ID 1
@@ -59,32 +84,37 @@ const renderPokemon = async (pokemon) => {
     pokemon = pokemon.toString().toLowerCase();
 
     //consulta na API o pokemon informado e retorna o JSON com todas as informações do pokemon
-    const data = await fetchPokemon(pokemon);
+    const data = await fetchPokemon(pokemon).then((data) => {
 
-    var img = data['sprites']['versions']['generation-v']['black-white']['animated'];
+        var img = data['sprites']['versions']['generation-v']['black-white']['animated'];
 
-    /*Estamos definindo qual a forma da apresentação do pokemon na pokedex */
-    var posicionJSON = posicion ? 'back_' : 'front_';
-    var shinyJSON = shiny ? 'shiny' : 'default';
+        /*Estamos definindo qual a forma da apresentação do pokemon na pokedex */
+        var posicionJSON = posicion ? 'back_' : 'front_';
+        var shinyJSON = shiny ? 'shiny' : 'default';
 
-    if (FrontAndBack) {
-        var img1 = img['back_' + shinyJSON];
-        var img2 = img['front_' + shinyJSON];
+        //Bloco de condição caso o usuario queira ou não ver o pokemon nas 2 posições (frente e costas)
+        if (FrontAndBack) {
+            var img1 = img['back_' + shinyJSON];
+            var img2 = img['front_' + shinyJSON];
 
-        TwoPokeImage[0].src = img1 ? img1 : "./images/img_default.png";
-        TwoPokeImage[1].src = img2 ? img2 : "./images/img_default.png";
-    }
-    else {
-        var img = img[posicionJSON + shinyJSON];
-        //Caminho até o gif do pokemon para aparecer no site
-        PokeImage.src = img ? img : "./images/img_default.png";
-    }
+            //Para evitar bugs futuros habilitamos a opção de ver ele somente em duas possições
+            TwoPokeImage[0].src = img1 ? img1 : "./images/img_default.png";
+            TwoPokeImage[1].src = img2 ? img2 : "./images/img_default.png";
+        }
+        else {
+            var img = img[posicionJSON + shinyJSON];
+            //Caminho até o gif do pokemon para aparecer no site
+            PokeImage.src = img ? img : "./images/img_default.png";
+        }
 
-    //Estamos pegando o arquivo JSON e extraindo os dados
-    PokeName.innerHTML = data.name;
-    PokeNumber.innerHTML = data.id;
-    idPokemon = data.id;
+        //Estamos pegando o arquivo JSON e extraindo os dados
+        PokeName.innerHTML = data.name;
+        PokeNumber.innerHTML = data.id;
+        idPokemon = data.id;
 
+        //Função reponsavel por carregar os icons informando a tipagem do pokemon na pokedex
+        renderTypePokemon(data.types);
+    })
 
 }
 
