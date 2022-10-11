@@ -90,3 +90,20 @@ main {
     text-transform: capitalize;
     /*Coloca a primeira letra como maiúscula*/
 }
+
+.pokemon_type{
+    display: flex;
+    height: 10%;
+    width: 70%;
+    left: 11%;
+    bottom: 18%;
+    position: absolute;
+}
+
+.pokemon_type_img{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5%;
+    width: 40%;
+    height: 40%;
+}
