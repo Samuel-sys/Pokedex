@@ -78,6 +78,19 @@ const renderTypePokemon = (type) => {
     }
 }
 
+const loadScreen = () => {
+    
+    PokeImage.classList.remove('hide');
+    TwoPokeImage[0].classList.add('hide');
+    TwoPokeImage[1].classList.add('hide');
+
+    PokeName.innerHTML = "Loading..."
+
+    document.querySelector('pokemon_image')
+
+    PokeImage.src = "./images/loading.gif";
+}
+
 const renderPokemon = async (pokemon) => {
 
     //Caso o colaborador não escreva nada ele consulta o pokemon de ID 1
