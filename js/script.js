@@ -1,7 +1,10 @@
 const PokeName = document.querySelector('.pokemon_name');
 const PokeNumber = document.querySelector('.pokemon_number');
+
+const GridPoke = document.querySelector('.gridpokemon');
 const PokeImage = document.querySelector('.pokemon_image');
-const TwoPokeImage = document.querySelectorAll('.pokemon_image2');
+const PokeImage2 = createElement('img', '.pokemon_image2');
+
 const PokeType = document.querySelector('.pokemon_type');
 
 const form = document.querySelector('.form');
@@ -9,32 +12,37 @@ const PokeSearch = document.querySelector('.input_search');
 const ButtonNext = document.querySelector('.btn-next');
 const ButtonPrev = document.querySelector('.btn-prev');
 
-let idPokemon = 1;
+var idPokemon = 1;
+
+function createElement(tag, ID) {
+    let e = document.createElement(tag);
+
+    e.classList.add(ID);
+    return e;
+}
 
 //Butão de ativação para que o usuario possa ver o pokemon no modo shiny
 const btnShiny = document.querySelector('.shiny');
-let shiny = false;
+var shiny = false;
 btnShiny.addEventListener('click', () => shiny = activatedButton(shiny, btnShiny));
 
 const btnPosicion = document.querySelector('.posicion');
-let posicion = false;
+var posicion = false;
 btnPosicion.addEventListener('click', () => posicion = activatedButton(posicion, btnPosicion));
 
 const btnFrontAndBack = document.querySelector('.FrontAndBack');
-let FrontAndBack = false;
+var FrontAndBack = false;
 
 //Essa função irá ser responsavel por alternar no modo de apresentar 2 fotos ao mesmo tempo ou apresentar somente uma.
 btnFrontAndBack.addEventListener('click', () => {
     FrontAndBack = activatedButton(FrontAndBack, btnFrontAndBack);
     if (FrontAndBack) {
+        //QUando tiver que mostrar somente 1 pokemon
         PokeImage.classList.add('hide');
-        TwoPokeImage[0].classList.remove('hide');
-        TwoPokeImage[1].classList.remove('hide');
     }
     else {
+        //QUando tiver que mostrar 2 pokemon
         PokeImage.classList.remove('hide');
-        TwoPokeImage[0].classList.add('hide');
-        TwoPokeImage[1].classList.add('hide');
     }
 });
 
@@ -79,7 +87,7 @@ const renderTypePokemon = (type) => {
 }
 
 const loadScreen = () => {
-    
+
     PokeImage.classList.remove('hide');
     TwoPokeImage[0].classList.add('hide');
     TwoPokeImage[1].classList.add('hide');
@@ -121,13 +129,17 @@ const renderPokemon = async (pokemon) => {
             var img2 = img['front_' + shinyJSON];
 
             //Para evitar bugs futuros habilitamos a opção de ver ele somente em duas possições
-            TwoPokeImage[0].src = img1 ? img1 : "./images/img_default.png";
-            TwoPokeImage[1].src = img2 ? img2 : "./images/img_default.png";
+            PokeImage2.src = img1 ? img1 : "./images/img_default.png";
+            PokeImage.src = img2 ? img2 : "./images/img_default.png";
+
+            if (!document.querySelector('.pokemon_image2')) GridPoke.appendChild(PokeImage2); //* AQUI */
         }
         else {
             var img = img[posicionJSON + shinyJSON];
             //Caminho até o gif do pokemon para aparecer no site
             PokeImage.src = img ? img : "./images/img_default.png";
+
+            try{GridPoke.removeChild(PokeImage2);}catch{}
         }
 
         //Estamos pegando o arquivo JSON e extraindo os dados

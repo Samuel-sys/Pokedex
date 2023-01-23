@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Oxanium', cursive;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oxanium", cursive;
 }
 
 /*Definições do backgroud do corpo do site 
@@ -13,97 +13,79 @@ para ter um degrade do azul-claro para o branco
 OBS: Colocamos um height minemo de 100% da viewport para que 
 não tenha uma quebra no meio da tela*/
 body {
-    text-align: center;
-    background: linear-gradient(to bottom, #6ab7f5, #fff);
-    min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #6ab7f5, #fff);
+  min-height: 100vh;
 }
 
 /*Aqui nos estamos definindo a posição da pokedex*/
 main {
-    display: inline-block;
-    margin-top: 2%;
-    padding: 15px;
-    position: relative;
-    /* Estamos impedindo que os objetos dentro da tag man possam sair da área delimitada */
+  display: inline-block;
+  padding: 15px;
+  position: relative;
+  /* Estamos impedindo que os objetos dentro da tag man possam sair da área delimitada */
 }
 
 .pokedex {
-    /*Estamos colocando uma limitação para que a imagem da pokedex nunca fique vazada
-    Ocupando assim sempre 100% da largura disponivel na tela*/
-    width: 100%;
 
-    /*Colocamos essa lagura como maxima pois a imagem da pokedex que nos estamos usanda
-    tem a proporção de 425 X 637 Assim evitando uma destorção da imagem*/
-    max-width: 425px;
+  height: 90vh;
 }
 
-.gridpokemon{
-    gap: 2px;
-    bottom: 47%;
-    left: 18%;
-    position: absolute;
-    width: 56.2%;
-    height: 25.5%;
-    border: solid #000;
-    border-radius: 5%;
-    display: table-row;
-    justify-items: center;
-}
+.gridpokemon {
+  gap: 10%;
+  bottom: 47%;
+  left: 17.4%;
+  position: absolute;
+  width: 56.8%;
+  height: 25.7%;
+  border: solid #000;
+  border-radius: 15px;
 
-/*Classe responsável pela posição e tamanho do gif do pokemon quando apresentado dois gif*/
-.pokemon_image2{
-    margin-top: 20%;
-    margin-bottom: 20%;
-    height: 50%;
-    max-height: 47%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 /*Classe responsável pela posição e tamanho do gif do pokemon quando apresentado somente um gif*/
-.pokemon_image {
-    position: absolute;
-    bottom: 55%;
-    left: 50%;
-    transform: translate(-63%, 20%);
-    height: 18%;
-}
-
-.hide{
-    visibility: collapse;
+.gridpokemon img {
+  width: 30%;
 }
 
 /*Posicionamento do nome do pokemon */
 .pokemon_data {
-    position: absolute;
-    font-weight: 600;
-    color: #aaa;
+  position: absolute;
+  font-weight: 600;
+  color: #aaa;
 
-    /* Optei por posicionar os dados do pokemon dessa forma ao invés de user o top e right */
-    bottom: 40%;
-    left: 25%;
+  /* Optei por posicionar os dados do pokemon dessa forma ao invés de user o top e right */
+  bottom: 40%;
+  left: 25%;
 
-    font-size: clamp(8px, 5vw, 25px);
-    /*clamp (MINEMO, DESEJAVEL, MAXIMO)*/
+  font-size: clamp(8px, 5vw, 25px);
+  /*clamp (MINEMO, DESEJAVEL, MAXIMO)*/
 }
 
 .pokemon_name {
-    color: #3a444d;
-    text-transform: capitalize;
-    /*Coloca a primeira letra como maiúscula*/
+  color: #3a444d;
+  text-transform: capitalize;
+  /*Coloca a primeira letra como maiúscula*/
 }
 
-.pokemon_type{
-    display: flex;
-    height: 10%;
-    width: 70%;
-    left: 11%;
-    bottom: 18%;
-    position: absolute;
+.pokemon_type {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 10%;
+  width: 70%;
+  left: 11%;
+  bottom: 18%;
+  position: absolute;
 }
 
-.pokemon_type_img{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 5%;
-    width: 40%;
-    height: 40%;
+.pokemon_type_img {
+  width: 40%;
+  height: 40%;
 }
