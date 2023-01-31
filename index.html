@@ -23,6 +23,9 @@
 
     <main>
 
+        <!-- Essa DIV e para bloquear a imagem da pokedex -->
+        <div style="position: absolute; width: 100%; height: 100%;"></div>
+
         <!-- Estamos mantendo uma gif fixa temporariamente para estar tendo uma visualização do resultado final -->
         <input type="button" class="btn shiny ">
         <input type="button" class="btn posicion">
@@ -42,9 +45,7 @@
         <!-- Dados do pokemon -->
 
         <div class="form">
-            <form action="">
-                <input type="search" class="input_search" placeholder="Name or Number">
-            </form>
+            <input type="search" class="input_search" placeholder="Name or Number">
             <div class="buttons">
                 <!-- No HTML sempre que colocamos o simbolo "<" ou ">" ele pode acabar confundindo com uma 
                     Abertura de uma tag, para evitar isso nos adicionamos um html entities nesse caso seria:
@@ -58,8 +59,8 @@
         </div>
 
         <!-- Informa o tipo do pokemon -->
-            <div class="pokemon_type">
-            </div>
+        <div class="pokemon_type">
+        </div>
 
 
 
