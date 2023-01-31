@@ -1,80 +1,77 @@
 /* Posicionamento do input em que o usuario vai digitar o nome ou numero do pokemon que ele que ver os dados */
 .form {
-    position: absolute;
-    width: 65%;
-    top: 65%;
-    left: 13.5%;
+  position: absolute;
+  width: 33%;
+  top: 66%;
+  left: 12.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20%;
 }
 
 /* Configurações do tamanho e estudo do input */
 .input_search {
-    width: 100%;
-    padding: 4%;
-    outline: none;
-    border-radius: 5px;
-    font-weight: 600;
-    color: #3a444d;
-    font-size: clamp(8px, 5vw, 1rem);
-    /*clamp (MINEMO, DESEJAVEL, MAXIMO)*/
-    box-shadow: -3px 4px 0 #888, -5px 7px 0 #333;
+  padding: 1vh;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #3a444d;
+  font-size: clamp(8px, 5vw, 1rem);
+  /*clamp (MINEMO, DESEJAVEL, MAXIMO)*/
+  box-shadow: -3px 4px 0 #888, -5px 7px 0 #333;
+  bottom: 1%;
+  width: 100%;
 }
 
 /* Posicionamento do butão em que o usuario conseguir ver o pokemon que vem antes e depois*/
-.buttons{
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    width: 65%;
-    transform: translate(-57%, 0%);
-    display: flex;
-    gap: 5%;
-
+.buttons {
+  display: flex;
+  gap: 5%;
 }
 
 /*Definimos uma sombra para os 2 buttons e posicionar os 2 centralizados na parte de baixo da pokedex*/
-.button{
-    width: 50%;
-    padding: 4%;
-    border: 2px solid #000;
-    border-radius: 5px;
-    font-size: clamp(8px, 5vw, 1rem);
-    font-weight: 600;
-    color: #fff;
-    background-color: #444;
-    box-shadow: -2px 3px 0 #222, -4px 6px #000;
+.button {
+  width: 50%;
+  padding: 4%;
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-size: clamp(8px, 5vw, 1rem);
+  font-weight: 600;
+  color: #fff;
+  background-color: #444;
+  box-shadow: -2px 3px 0 #222, -4px 6px #000;
 }
 
 /*Animação de clique no botão*/
-.button:active{
-    box-shadow: inset -4px 4px 0 #222;
-    font-size: 0.9rem;
+.button:active {
+  box-shadow: inset -4px 4px 0 #222;
+  font-size: 0.9rem;
 }
-
 
 /*Definimos o tamanho do botão de eventos e deixamos ele transparente*/
-.btn{
-    height: 3.5%;
-    width: 5.3%;
-    border-radius: 100%;
-    background-color: transparent;
-    border-color: transparent;
-    position: absolute;
-    top: 3.78%;
-    cursor: pointer;
+.btn {
+  height: 3.5%;
+  width: 2.8%;
+  border-radius: 100%;
+  background-color: transparent;
+  border-color: transparent;
+  position: absolute;
+  top: 9.4%;
+  cursor: pointer;
 }
 
-.shiny{
-    left: 29%;
+.shiny {
+  left: 20.5%;
 }
 
-.posicion{
-    left: 36.5%;
+.posicion {
+  left: 23.9%;
 }
 
-.FrontAndBack{
-    left: 43.7%;
+.FrontAndBack {
+  left: 27.3%;
 }
 
-.activated{
-    background: radial-gradient(rgba(231, 255, 18), green);
+.activated {
+  background: radial-gradient(rgba(231, 255, 18), green);
 }

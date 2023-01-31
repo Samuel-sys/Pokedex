@@ -22,31 +22,33 @@ body {
 
 /*Aqui nos estamos definindo a posição da pokedex*/
 main {
-  display: inline-block;
   padding: 15px;
   position: relative;
   /* Estamos impedindo que os objetos dentro da tag man possam sair da área delimitada */
 }
 
 .pokedex {
-
-  height: 90vh;
+  height: 100vh;
 }
 
+/*Ok*/
 .gridpokemon {
   gap: 10%;
-  bottom: 47%;
-  left: 17.4%;
+  bottom: 41.6%;
+  left: 13.8%;
   position: absolute;
-  width: 56.8%;
-  height: 25.7%;
-  border: solid #000;
-  border-radius: 15px;
+  width: 30%;
+  height: 29.0%;
+  border-radius: 5px;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  background-image: url('../images/fundo_pokedex.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /*Classe responsável pela posição e tamanho do gif do pokemon quando apresentado somente um gif*/
@@ -57,12 +59,14 @@ main {
 /*Posicionamento do nome do pokemon */
 .pokemon_data {
   position: absolute;
-  font-weight: 600;
-  color: #aaa;
+  font-weight: 800;
+  color: #555;
+  width: 100%;
+  text-align: center;
 
   /* Optei por posicionar os dados do pokemon dessa forma ao invés de user o top e right */
-  bottom: 40%;
-  left: 25%;
+  bottom: 2%;
+  
 
   font-size: clamp(8px, 5vw, 25px);
   /*clamp (MINEMO, DESEJAVEL, MAXIMO)*/
@@ -77,15 +81,15 @@ main {
 .pokemon_type {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   height: 10%;
-  width: 70%;
-  left: 11%;
+  width: 35%;
+  right: 10.1%;
   bottom: 18%;
   position: absolute;
 }
 
 .pokemon_type_img {
-  width: 40%;
-  height: 40%;
+  width: 47%;
+  height: 49%;
 }
