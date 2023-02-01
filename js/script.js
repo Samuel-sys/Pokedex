@@ -1,37 +1,34 @@
-import { idPokemon, renderPokemon } from "./elements.js";
+import { data, idPokemon, rederImagePokemon, renderPokemon } from "./elements.js";
 
 const PokeImage = document.querySelector('.pokemon_image');
 
-const form = document.querySelector('.form');
 const PokeSearch = document.querySelector('.input_search');
 const ButtonNext = document.querySelector('.btn-next');
 const ButtonPrev = document.querySelector('.btn-prev');
 
-PokeSearch.addEventListener('keyup', (x) => x.key == 'Enter' ? renderPokemon(PokeSearch.value): '');
+PokeSearch.addEventListener('keyup', (x) => x.key == 'Enter' ? renderPokemon(PokeSearch.value) : '');
 
 //Butão de ativação para que o usuario possa ver o pokemon no modo shiny
 const btnShiny = document.querySelector('.shiny');
 export var shiny = false;
-btnShiny.addEventListener('click', () => shiny = activatedButton(shiny, btnShiny));
+btnShiny.addEventListener('click', () => {
+    shiny = activatedButton(shiny, btnShiny);
+    rederImagePokemon(data);
+});
 
 const btnPosicion = document.querySelector('.posicion');
 export var posicion = false;
-btnPosicion.addEventListener('click', () => posicion = activatedButton(posicion, btnPosicion));
+btnPosicion.addEventListener('click', () => {
+    posicion = activatedButton(posicion, btnPosicion);
+    rederImagePokemon(data);
+});
 
 const btnFrontAndBack = document.querySelector('.FrontAndBack');
 export var FrontAndBack = false;
-
-//Essa função irá ser responsavel por alternar no modo de apresentar 2 fotos ao mesmo tempo ou apresentar somente uma.
 btnFrontAndBack.addEventListener('click', () => {
     FrontAndBack = activatedButton(FrontAndBack, btnFrontAndBack);
-    if (FrontAndBack) {
-        //QUando tiver que mostrar somente 1 pokemon
-        PokeImage.classList.add('hide');
-    }
-    else {
-        //QUando tiver que mostrar 2 pokemon
-        PokeImage.classList.remove('hide');
-    }
+    rederImagePokemon(data);
+
 });
 
 /*Essa função irá adicionar ou remover a classe "activated" do elemento que foi informado. 
@@ -45,8 +42,6 @@ const activatedButton = (status, elemnt) => {
     } else {
         elemnt.classList.remove('activated');
     }
-
-    renderPokemon(idPokemon);
 
     return status;
 };
