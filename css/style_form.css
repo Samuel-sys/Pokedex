@@ -50,26 +50,37 @@
 
 /*Definimos o tamanho do botão de eventos e deixamos ele transparente*/
 .btn {
-  height: 3.5%;
-  width: 2.8%;
+  height: 4.3%;
+  width: 3.2%;
   border-radius: 100%;
   background-color: transparent;
   border-color: transparent;
   position: absolute;
-  top: 9.4%;
+  top: 9.5%;
   cursor: pointer;
+  animation: borda 2s alternate infinite;
+  transition: ease;
+}
+
+@keyframes borda {
+  0% {
+    border: yellow 0px ;
+  }
+  100% {
+    border: yellow 4px solid;
+  }
 }
 
 .shiny {
-  left: 20.5%;
+  left: 20.45%;
 }
 
 .posicion {
-  left: 23.9%;
+  left: 24%;
 }
 
 .FrontAndBack {
-  left: 27.3%;
+  left: 27.6%;
 }
 
 .activated {
