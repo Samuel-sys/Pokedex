@@ -7,7 +7,16 @@ export async function fetchPokemon(pokemon) {
     //ele só irá passar o arquivo JSON para o resto do projeto se ele encontrar pokemon
     if (APIResponse.status == 200) {
         const data = await APIResponse.json(); //extraimos os dados JSONG
-        console.log(data['moves'][0]);
         return data;
+    }
+}
+
+export async function fetchPokemonType(url) {
+    const APIResponse = await fetch(url);
+
+    if (APIResponse.status == 200) {
+        const data = await APIResponse.json();
+
+        return data['type']
     }
 }
