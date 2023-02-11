@@ -18,6 +18,7 @@ body {
   justify-content: center;
   background: linear-gradient(to bottom, #6ab7f5, #fff);
   min-height: 100vh;
+  min-width: fit-content;
 }
 
 /*Aqui nos estamos definindo a posição da pokedex*/
