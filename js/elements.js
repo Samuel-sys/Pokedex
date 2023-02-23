@@ -84,7 +84,6 @@ export async function renderPokemon(pokemon) {
 export function rederImagePokemon(x) {
     //o JSON com os dados do pokemon tem que ser passado como parametro no metodo.
     var img = x;
-    console.log('img ', img)
     img = img['sprites']['versions']['generation-v']['black-white']['animated'];
 
     /*Estamos definindo qual a forma da apresentação do pokemon na pokedex */
